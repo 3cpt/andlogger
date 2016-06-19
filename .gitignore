@@ -4,3 +4,7 @@
 
 /AndLogger/AndLogger/bin/Debug
 /AndLogger/AndLogger/obj/Debug
+/AndLogger/packages/NUnit.3.2.1
+/AndLogger/AndLogger.Tests/bin/Debug
+/AndLogger/AndLogger.Tests/obj/Debug
+/AndLogger/.vs/AndLogger/v14
