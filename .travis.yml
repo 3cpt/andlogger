@@ -1,4 +1,6 @@
 language: csharp
-solution: AndLogger.sln
+solution: AndLogger/AndLogger.sln
+install:
+  - nuget restore AndLogger/AndLogger.sln
 script:
-  - xbuild /p:Configuration=Release AndLogger.sln
+  - xbuild /p:Configuration=Release AndLogger/AndLogger.sln
