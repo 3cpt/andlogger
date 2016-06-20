@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 
-namespace andcorreia
+namespace Andlogger
 {
-    public static class Andlogger
+    public static class Log
     {
         private static string ConstFileName = "logger.txt";
 
