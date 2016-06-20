@@ -2,6 +2,7 @@
 A simple log creator for C#
 
 # Under Development
+- Missing sync with Nuget Package
 
 # Example
 ```
