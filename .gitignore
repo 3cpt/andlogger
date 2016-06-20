@@ -15,3 +15,7 @@
 /Andlogger.Tests/obj/Debug
 /packages/NUnit.3.2.1
 /logger.txt
+/Andlogger/bin/Release
+/Andlogger/obj/Release
+/Andlogger.Tests/bin/Release
+/Andlogger.Tests/obj/Release

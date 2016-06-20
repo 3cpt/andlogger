@@ -7,10 +7,11 @@
     <ProjectGuid>{988EF2CE-71FE-477D-B456-39D1018B17B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AndLogger.Tests</RootNamespace>
-    <AssemblyName>AndLogger.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Andlogger.Tests</RootNamespace>
+    <AssemblyName>Andlogger.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +48,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AndLogger\Andlogger.csproj">
+    <ProjectReference Include="..\Andlogger\Andlogger.csproj">
       <Project>{efbbcee8-3a1e-4c6c-9785-641a601ba709}</Project>
       <Name>Andlogger</Name>
     </ProjectReference>
