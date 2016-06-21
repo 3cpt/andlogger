@@ -11,7 +11,7 @@ namespace Andlogger
         /// Write a Debug to the Log file
         /// </summary>
         /// <param name="Message">Message that will be added to the Log</param>
-        public static string LogDebug(string Message)
+        public static string Debug(string Message)
         {
             return WriteLogFile("|DEBUG|" + Message);
         }
@@ -21,7 +21,7 @@ namespace Andlogger
         /// </summary>
         /// <param name="Method">Method where the log is called</param>
         /// <param name="Message">Message that will be added to the Log</param>
-        public static string LogDebug(string Method, string Message)
+        public static string Debug(string Method, string Message)
         {
             return WriteLogFile("|DEBUG|METHOD:" + Method + "|" + Message);
         }
@@ -30,7 +30,7 @@ namespace Andlogger
         /// Write an Error to the Log file
         /// </summary>
         /// <param name="Message">Message that will be added to the Log</param>
-        public static string LogError(string Message)
+        public static string Error(string Message)
         {
             return WriteLogFile("|ERROR|" + Message);
         }
@@ -40,7 +40,7 @@ namespace Andlogger
         /// </summary>
         /// <param name="Method">Method where the log is called</param>
         /// <param name="Message">Message that will be added to the Log</param>
-        public static string LogError(string Method, string Message)
+        public static string Error(string Method, string Message)
         {
             return WriteLogFile("|ERROR|METHOD:" + Method + "|" + Message);
         }
@@ -51,7 +51,7 @@ namespace Andlogger
         /// <param name="Method">Method where the log is called</param>
         /// <param name="Message">Message that will be added to the Log</param>
         /// <param name="Exception">Exception generated in the catch</param>
-        public static string LogError(string Method, string Message, Exception Exception)
+        public static string Error(string Method, string Message, Exception Exception)
         {
             return WriteLogFile("|DEBUG|METHOD:" + Method + "|" + Message + "|" + Exception.StackTrace);
         }
@@ -60,7 +60,7 @@ namespace Andlogger
         /// Write an Info to the Log file
         /// </summary>
         /// <param name="Message">Message that will be added to the Log</param>
-        public static string LogInfo(string Message)
+        public static string Info(string Message)
         {
             return WriteLogFile("|INFO|" + Message);
         }
@@ -70,7 +70,7 @@ namespace Andlogger
         /// </summary>
         /// <param name="Method">Method where the log is called</param>
         /// <param name="Message">Message that will be added to the Log</param>
-        public static string LogInfo(string Method, string Message)
+        public static string Info(string Method, string Message)
         {
             return WriteLogFile("|INFO|METHOD:" + Method + "|" + Message);
         }
@@ -79,7 +79,7 @@ namespace Andlogger
         /// Write a Warning to the Log file
         /// </summary>
         /// <param name="Message">Message that will be added to the Log</param>
-        public static string LogWarning(string Message)
+        public static string Warning(string Message)
         {
             return WriteLogFile("|WARNING|" + Message);
         }
@@ -89,7 +89,7 @@ namespace Andlogger
         /// </summary>
         /// <param name="Method">Method where the log is called</param>
         /// <param name="Message">Message that will be added to the Log</param>
-        public static string LogWarning(string Method, string Message)
+        public static string Warning(string Method, string Message)
         {
             return WriteLogFile("|WARNING|METHOD:" + Method + "|" + Message);
         }
