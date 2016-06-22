@@ -53,7 +53,7 @@ namespace Andlogger
         /// <param name="Exception">Exception generated in the catch</param>
         public static string Error(string message, string method, Exception exception)
         {
-            return WriteLogFile("|DEBUG|METHOD:" + method + "|" + message + "|" + exception.StackTrace);
+            return WriteLogFile("|ERROR|METHOD:" + method + "|" + message + "|" + exception.StackTrace);
         }
 
         /// <summary>

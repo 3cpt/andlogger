@@ -93,5 +93,14 @@ namespace AndLogger.Tests
             string exp = "|ERROR|METHOD:" + method + "|" + message;
             Assert.AreEqual(exp, actual);
         }
+        
+        [TestCase("", "", "")]
+        [Category("Error")]
+        public void LogError_MethodMessageException(string method, string message, string expected)
+        {
+            string actual = Log.Error(message, method, new Exception());
+            string exp = "|ERROR|METHOD:" + method + "|" + message + "|";
+            Assert.AreEqual(exp, actual);
+        }
     }
 }
