@@ -1,7 +1,10 @@
 # Logger
 A simple log creator for C#
 
-# Under Development - So on release some features could change
+[![Build Status](https://travis-ci.org/andretahhir/Andlogger.svg?branch=master)](https://travis-ci.org/andretahhir/Andlogger)
+
+# Under Development
+(on release some features can change until 1.0)
 - File opened tests
 - Permissions tests
 - Travis building is failing
@@ -19,13 +22,13 @@ Just:
  Log.LogWarning(<message>);
  Log.LogError(<method>, <message>, <exception>); 
 ```
-- A file .txt will be created inside the application folder
+- A file .txt will be created inside the application folder that uses this library
 
 # Example
 ```
 [2016-06-20 09:10:24]|DEBUG|
-[2016-06-20 09:10:24]|DEBUG|debug_message
-[2016-06-20 09:10:24]|DEBUG|METHOD:|debug_message
-[2016-06-20 09:10:24]|DEBUG|METHOD:|debug_message
+[2016-06-20 09:10:24]|INFO|info_message
+[2016-06-20 09:10:24]|WARNING|METHOD:Method2|warning_message
+[2016-06-20 09:10:24]|ERROR|METHOD:Method1|error_message|<stacktrace>
 [2016-06-20 09:10:24]|DEBUG|METHOD:method x|debug_message
 ```
