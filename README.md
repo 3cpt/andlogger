@@ -1,7 +1,7 @@
 # Logger
 A simple log creator for C#
 
-[![Build Status](https://travis-ci.org/andretahhir/Andlogger.svg?branch=master)](https://travis-ci.org/andretahhir/Andlogger)
+[![Build Status](https://travis-ci.org/iamhandre/Andlogger.svg?branch=master)](https://travis-ci.org/iamhandre/Andlogger)
 
 # Under Development
 (on release some features can change until 1.0)
