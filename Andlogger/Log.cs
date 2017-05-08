@@ -1,56 +1,21 @@
 ﻿using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Andlogger
 {
-    public class Log : ILog
+    public class Log
     {
-        private IStrategy strategy;
+        public Level Level { get; set; }
 
-        public Log(Level level, string path)
-        {
-            this.strategy = new FileLog(level, path);
-        }
-        
-        public void Debug(string message)
-        {
-            this.strategy.Save(Level.Debug, FormatedDate() + "|DEBUG|" + message);
-        }
-        
-        
-        /// <summary>
-        /// Return the current date in managed format
-        /// </summary>
-        /// <returns>Datet time now in <i>yyyy-MM-dd HH:mm:ss</i> format</returns>
-        private static string FormatedDate()
-        {
-            return "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]";
-        }
+        public string Message { get; set; }
 
+        public string  Method { get; set; }
 
-        public void Debug(string message, Exception exception)
-        {
-            throw new NotImplementedException();
-        }
+        public Exception Exception { get; set; }
 
-        void ILog.Info(string message)
-        {
-            throw new NotImplementedException();
-        }
-
-        void ILog.Warning(string message)
-        {
-            throw new NotImplementedException();
-        }
-
-        void ILog.Error(string message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Error(string message, Exception exception)
-        {
-            throw new NotImplementedException();
-        }
+        public Guid Id { get; private set; } = Guid.NewGuid();
     }
 }

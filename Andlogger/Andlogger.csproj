@@ -38,11 +38,14 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
     <Compile Include="ILog.cs" />
     <Compile Include="IStrategy.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FileLog.cs" />
+    <Compile Include="Strategies\FileLog.cs" />
+    <Compile Include="Strategies\JsonLog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,7 +2,12 @@
 {
     public interface IStrategy
     {
-        void Save(Log log);
+        void Save(Level level, string log);
+    }
+
+    public enum Type
+    {
+        File
     }
 
     public enum Level
