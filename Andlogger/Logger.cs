@@ -7,9 +7,9 @@ namespace Andlogger
     {
         private IStrategy strategy;
 
-        public Logger(Level level, string path, string extension = ".txt")
+        public Logger(Level level, string path, char separator = '|')
         {
-            this.strategy = new FileLog(level, path, extension);
+            this.strategy = new FileLog(level, path, separator);
         }
 
         public Logger(Level level, string path)
@@ -19,42 +19,32 @@ namespace Andlogger
 
         public void Debug(string message)
         {
-            this.strategy.Save(
-                Level.Debug,
-                Helpers.FormatedDate() + "|DEBUG|" + message);
+            this.strategy.Save(new Log(Level.Debug, message));
         }
 
         public void Debug(string message, Exception exception)
         {
-            this.strategy.Save(
-                Level.Debug,
-                Helpers.FormatedDate() + "|DEBUG|" + message + "\n>>>TRACE>>>" + exception.Message + ">>>" + exception.StackTrace);
+            this.strategy.Save(new Log(Level.Debug, message, exception));
         }
 
         public void Info(string message)
         {
-            this.strategy.Save(
-                Level.Info,
-                Helpers.FormatedDate() + "|INFO|" + message);
+            this.strategy.Save(new Log(Level.Info, message));
         }
 
         public void Warning(string message)
         {
-            this.strategy.Save(
-                Level.Info,
-                Helpers.FormatedDate() + "|WARNING|" + message);
+            this.strategy.Save(new Log(Level.Warning, message));
         }
 
         public void Error(string message)
         {
-            this.strategy.Save(
-                Level.Info,
-                Helpers.FormatedDate() + "|ERROR|" + message);
+            this.strategy.Save(new Log(Level.Error, message));
         }
 
         public void Error(string message, Exception exception)
         {
-            throw new NotImplementedException();
+            this.strategy.Save(new Log(Level.Error, message, exception));
         }
     }
 }

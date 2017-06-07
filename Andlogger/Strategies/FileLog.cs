@@ -1,25 +1,27 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace Andlogger.Strategies
 {
-    public class FileLog : IStrategy
+    internal class FileLog : IStrategy
     {
         private string path;
         private Level level;
         private string fileName = "logger";
         private string extension = ".txt";
+        private char separator = '|';
 
-        public FileLog(Level level, string path, string extension)
+        public FileLog(Level level, string path, char separator)
         {
             this.level = level;
             this.path = path;
-            this.extension = extension;
+            this.separator = separator;
         }
 
-        public void Save(Level level, string log)
+        public void Save(Log log)
         {
-            if (level <= this.level)
+            if (log.Level <= this.level)
             {
                 try
                 {
@@ -57,6 +59,24 @@ namespace Andlogger.Strategies
                     throw ex;
                 }
             }
+        }
+
+        private string Render(Log log)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Helpers.FormatedDate(log.Timestamp)).Append(separator);
+            sb.Append(log.Level.ToString().ToUpper()).Append(separator);
+            sb.Append(log.Message).Append(separator);
+            if (log.Exception != null)
+            {
+                sb.Append("\n>>>TRACE>>>");
+                sb.Append(log.Exception.Message);
+                sb.Append(">>>");
+                sb.Append(log.Exception.StackTrace).Append(separator);
+            }
+
+            return sb.ToString();
         }
     }
 }

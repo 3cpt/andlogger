@@ -2,7 +2,7 @@
 
 namespace Andlogger.Strategies
 {
-    public class JsonLog : IStrategy
+    internal class JsonLog : IStrategy
     {
         private string path;
         private Level level;
@@ -15,7 +15,7 @@ namespace Andlogger.Strategies
             this.path = path;
         }
 
-        public void Save(Level level, string log)
+        public void Save(Log log)
         {
             throw new NotImplementedException();
         }

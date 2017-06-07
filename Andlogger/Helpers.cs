@@ -8,9 +8,9 @@ namespace Andlogger
         /// Return the current date in managed format
         /// </summary>
         /// <returns>Datet time now in <i>yyyy-MM-dd HH:mm:ss</i> format</returns>
-        internal static string FormatedDate()
+        internal static string FormatedDate(DateTime date)
         {
-            return "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]";
+            return "[" + date.ToString("yyyy-MM-dd HH:mm:ss") + "]";
         }
     }
 }
