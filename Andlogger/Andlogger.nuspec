@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <version>0.4.0</version>
+    <id>andlogger</id>
+    <title>Andlogger</title>
+    <description>A simple logger</description>
+    <authors>andrecorreia</authors>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>framework logging simple</tags>
+    <projectUrl>https://github.com/iamhandre/andlogger</projectUrl>
+  </metadata>
+</package>
