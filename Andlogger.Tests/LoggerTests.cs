@@ -1,9 +1,8 @@
-﻿using NUnit.Framework;
-using Andlogger;
-using System;
-
-namespace AndLogger.Tests
+﻿namespace AndLogger.Tests
 {
+    using Andlogger;
+    using NUnit.Framework;
+
     [TestFixture]
     public class LoggerTests
     {
@@ -15,14 +14,14 @@ namespace AndLogger.Tests
             this.log = new Logger(Level.Warning, "c:\\");
         }
 
-        static object[] Message =
+        private static object[] Message =
         {
             new object[] { null, "" },
             new object[] { "", "" },
             new object[] { "message", "message" }
         };
 
-        static object[] MessageMethod =
+        private static object[] MessageMethod =
         {
             new object[] { null, null, "" },
             new object[] { "", "", "" },

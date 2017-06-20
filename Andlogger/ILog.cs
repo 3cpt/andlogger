@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Andlogger
+﻿namespace Andlogger
 {
+    using System;
+
     public interface ILog
     {
         void Debug(string message);

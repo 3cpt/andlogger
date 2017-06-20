@@ -1,8 +1,8 @@
-﻿using System;
-using Andlogger.Strategies;
-
-namespace Andlogger
+﻿namespace Andlogger
 {
+    using System;
+    using Andlogger.Strategies;
+
     public class Logger : ILog
     {
         private IStrategy strategy;
