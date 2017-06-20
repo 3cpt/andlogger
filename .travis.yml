@@ -3,4 +3,4 @@ solution: Andlogger.sln
 install:
   - nuget restore Andlogger.sln
 script:
-  - xbuild /p:Configuration=Release Andlogger.sln
+  - msbuild /p:Configuration=Release Andlogger.sln
