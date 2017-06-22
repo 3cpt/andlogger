@@ -4,11 +4,11 @@ A simple log creator for C#
 [![Build Status](https://travis-ci.org/iamhandre/andlogger.svg?branch=master)](https://travis-ci.org/iamhandre/Andlogger)
 
 # Under Development
-(on release some features can change until 1.0)
+
+- .Net Core
+- Json File implementations
 - File opened tests
 - Permissions tests
-- Travis building is failing
-- Sync with Nuget Package
 - More tests
 
 # How to use
