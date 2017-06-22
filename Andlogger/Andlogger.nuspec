@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0"?>
 <package>
   <metadata>
-    <version>0.4.1</version>
+    <version>0.4.2</version>
     <id>andlogger</id>
     <title>Andlogger</title>
-    <description>A simple logger</description>
+    <description>A simple logger. Under development.</description>
     <authors>andrecorreia</authors>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2017</copyright>
@@ -12,6 +12,6 @@
     <projectUrl>https://github.com/iamhandre/andlogger</projectUrl>
   </metadata>
   <files>
-    <file src="/home/travis/build/iamhandre/andlogger/Andlogger/bin/Release/Andlogger.dll" />
+    <file src="/home/travis/build/iamhandre/andlogger/Andlogger/bin/Release/Andlogger.dll" target="lib\net40" />
   </files>
 </package>
