@@ -23,7 +23,7 @@ script:
   # - cd ../../
   
   # Run tests
-  # - cd test/Whathecode.System.Tests
+  # - cd test/Andlogger.Tests
   # - dotnet restore
   # - dotnet test
 
@@ -31,6 +31,6 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - cd src/Andlogger && nuget pack Andlogger.nuspec -Version $VERSION -IncludeReferencedProjects -Prop Configuration=Release && nuget push *.nupkg $NUGET_API_KEY -verbosity detailed
+    - cd Andlogger && nuget pack Andlogger.nuspec -Version $VERSION -IncludeReferencedProjects -Prop Configuration=Release && nuget push *.nupkg $NUGET_API_KEY -verbosity detailed
   on:
     branch: master
