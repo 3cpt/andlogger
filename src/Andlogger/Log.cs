@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Log
+    internal class Log
     {
         public Log(Level level, string message)
         {
