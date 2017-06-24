@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-
-namespace Andlogger.Strategies
+﻿namespace Andlogger.Strategies
 {
+    using System;
+    using System.IO;
+    using System.Text;
+
     internal class FileLog : IStrategy
     {
         private string path;

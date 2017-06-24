@@ -14,7 +14,7 @@
 
         public Logger(Level level, string path)
         {
-            //this.strategy = new JsonLog(level, path);
+            this.strategy = new JsonLog(level, path);
         }
 
         public void Debug(string message)
