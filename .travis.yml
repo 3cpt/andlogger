@@ -15,7 +15,7 @@ script:
   # - msbuild /p:Configuration=Release src/Andlogger.sln
 
   # Build the source
-  - cd src/Andlogger.sln
+  - cd src/Andlogger
   - dotnet restore
   - dotnet build
   
