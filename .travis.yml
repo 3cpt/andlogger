@@ -1,13 +1,36 @@
 language: csharp
+os: linux
+sudo: required
+dist: trusty
+dotnet: 1.0.1
+env: DOTNETCORE=1
+mono: none
+
 solution: Andlogger.sln
-install:
-  - nuget restore Andlogger.sln
+
+# install:
+  # - nuget restore src/Andlogger.sln
+  
 script:
-  - msbuild /p:Configuration=Release Andlogger.sln
+  # - msbuild /p:Configuration=Release src/Andlogger.sln
+
+  # Build the source
+  - cd src/Andlogger
+  - dotnet restore
+  - dotnet build
+  
+  # Back to main
+  # - cd ../../
+  
+  # Run tests
+  # - cd test/Whathecode.System.Tests
+  # - dotnet restore
+  # - dotnet test
+
 deploy:
   provider: script
   skip_cleanup: true
   script:
-    - cd Andlogger && nuget pack Andlogger.nuspec -Version $VERSION -IncludeReferencedProjects -Prop Configuration=Release && nuget push *.nupkg $NUGET_API_KEY -verbosity detailed
+    - cd src/Andlogger && nuget pack Andlogger.nuspec -Version $VERSION -IncludeReferencedProjects -Prop Configuration=Release && nuget push *.nupkg $NUGET_API_KEY -verbosity detailed
   on:
     branch: master
