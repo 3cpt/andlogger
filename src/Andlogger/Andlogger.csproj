@@ -1,7 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
-  </PropertyGroup>
+    <TargetFrameworks>netstandard1.3;net40;net45</TargetFrameworks>
 
+    <PackageId>andlogger</PackageId>
+    <PackageVersion>0.5.0</PackageVersion>
+    <Authors>andrecorreia</Authors>
+    <Description>A simple logger</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright 2017 (c) </Copyright>
+    <PackageTags>logger logging logs framework simple</PackageTags>
+    
+  </PropertyGroup>
 </Project>
