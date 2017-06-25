@@ -18,6 +18,8 @@
 
         public void Save(Log log)
         {
+            var oooo = fileName + extension;
+
             throw new NotImplementedException();
         }
     }
