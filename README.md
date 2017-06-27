@@ -1,4 +1,7 @@
-# Logger
+# !!! Under Development !!! New fully working version coming soon
+... with documentation
+
+# AndLogger
 A simple log creator for C#
 
 [![Build Status](https://travis-ci.org/iamhandre/andlogger.svg?branch=master)](https://travis-ci.org/iamhandre/Andlogger)
