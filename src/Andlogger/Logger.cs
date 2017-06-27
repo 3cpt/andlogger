@@ -7,14 +7,20 @@
     {
         private IStrategy strategy;
 
+        /// <summary>
+        /// Instantiate a log based in a Text file (.txt)
+        /// </summary>
+        /// <param name="level">Minimun level that the log will write</param>
+        /// <param name="path">Full or Partial path to the file location</param>
+        /// <param name="separator">Character that will be used to split the the string. By default '|'</param>
         public Logger(Level level, string path, char separator = '|')
         {
             this.strategy = new FileLog(level, path, separator);
         }
-
+        
         public Logger(Level level, string path)
         {
-            this.strategy = new JsonLog(level, path);
+            throw new NotImplementedException();
         }
 
         public void Debug(string message)

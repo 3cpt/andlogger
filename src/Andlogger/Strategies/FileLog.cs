@@ -11,7 +11,7 @@
         private string fileName = "logger";
         private string extension = ".txt";
         private char separator = '|';
-
+        
         public FileLog(Level level, string path, char separator)
         {
             this.level = level;
@@ -25,6 +25,8 @@
             {
                 try
                 {
+                    var x = File.GetAttributes("");
+
                     this.fileName = this.fileName + this.extension;
 
                     if (File.Exists(fileName))

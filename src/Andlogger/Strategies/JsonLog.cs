@@ -1,13 +1,13 @@
 ﻿namespace Andlogger.Strategies
 {
     using System;
+    using System.IO;
 
     internal class JsonLog : IStrategy
     {
         private string path;
         private Level level;
         private string fileName = "logger";
-        private string extension = ".json";
 
         public JsonLog(Level level, string path)
         {
@@ -18,7 +18,7 @@
 
         public void Save(Log log)
         {
-            var oooo = fileName + extension;
+            var oooo = fileName + ".json";
 
             throw new NotImplementedException();
         }
