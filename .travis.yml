@@ -1,6 +1,5 @@
 language: csharp
 sudo: required
-dist: trusty
 dotnet: 1.0.1
 env: DOTNETCORE=1
 
