@@ -1,17 +1,21 @@
 language: csharp
-group: deprecated-2017Q1
-dist: trusty
 sudo: required
-dotnet: 1.1
-env: DOTNETCORE=1
+dist: trusty
 
-solution: Andlogger.sln
+mono: none
+dotnet: 1.0.0
+
+branches:  
+  only:
+    - master
+
+# solution: Andlogger.sln
 
 script:
   # Build the source
   - cd src/Andlogger
   - dotnet restore
-  - dotnet build
+  - dotnet --verbose build -c Release
   
   # Back to main
   #- cd ../../
