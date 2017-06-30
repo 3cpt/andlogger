@@ -15,7 +15,7 @@ script:
   # Build the source
   - cd src/Andlogger
   - dotnet restore
-  - dotnet --verbose build -c Release
+  - dotnet build -c Release
   
   # Back to main
   #- cd ../../
