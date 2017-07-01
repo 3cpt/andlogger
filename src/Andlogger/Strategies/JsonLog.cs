@@ -5,21 +5,13 @@
 
     internal class JsonLog : IStrategy
     {
-        private string path;
-        private Level level;
-        private string fileName = "logger";
-
-        public JsonLog(Level level, string path)
+        public JsonLog(Level level, string path, string filename)
         {
-            this.level = level;
-            this.path = path;
             throw new NotImplementedException();
         }
 
-        public void Save(Log log)
+        public void Write(Log log)
         {
-            var oooo = fileName + ".json";
-
             throw new NotImplementedException();
         }
     }

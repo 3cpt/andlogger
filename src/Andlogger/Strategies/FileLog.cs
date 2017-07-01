@@ -6,54 +6,31 @@
 
     internal class FileLog : IStrategy
     {
-        private string path;
+        private string fullpath;
         private Level level;
         private string fileName = "logger";
-        private string extension = ".txt";
-        private char separator = '|';
-        
-        public FileLog(Level level, string path, char separator)
+
+        public FileLog(Level level, string path)
         {
             this.level = level;
-            this.path = path;
-            this.separator = separator;
+            this.fullpath = path + fileName + ".txt";
+
+            this.CreateLogFile();
         }
 
-        public void Save(Log log)
+        public void Write(Log log)
         {
             if (log.Level <= this.level)
             {
                 try
                 {
-                    var x = File.GetAttributes("");
+                    this.CreateLogFile();
 
-                    this.fileName = this.fileName + this.extension;
+                    string message = this.Render(log);
 
-                    if (File.Exists(fileName))
+                    using (StreamWriter streamWriter = File.AppendText(fullpath))
                     {
-                        FileInfo fileInfo = new FileInfo(fileName);
-                        if (fileInfo.Length > 2048)
-                        {
-                            File.Move(fileName, fileName + Guid.NewGuid().ToString());
-                            using (StreamWriter streamWriter = File.CreateText(fileName))
-                            {
-                                streamWriter.WriteLine(log);
-                            }
-                        }
-                        else
-                        {
-                            using (StreamWriter streamWriter = File.AppendText(fileName))
-                            {
-                                streamWriter.WriteLine(log);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        using (StreamWriter streamWriter = File.CreateText(fileName))
-                        {
-                            streamWriter.WriteLine(log);
-                        }
+                        streamWriter.WriteLine(message);
                     }
                 }
                 catch (Exception ex)
@@ -63,19 +40,46 @@
             }
         }
 
+        private void CreateLogFile()
+        {
+            FileInfo fileInfo = new FileInfo(fullpath);
+            if (fileInfo.Exists)
+            {
+                if (fileInfo.IsReadOnly)
+                {
+                    throw new FileLoadException("File is Read Only", fullpath);
+                }
+
+                if (fileInfo.Length > 2048)
+                {
+                    File.Move(fullpath, fullpath + Guid.NewGuid().ToString());
+                    File.Create(fullpath);
+                }
+            }
+            else
+            {
+                var stream = File.Create(fullpath);
+                stream.Flush();
+            }
+            
+        }
+
         private string Render(Log log)
         {
+            char separator = '|';
+
             StringBuilder sb = new StringBuilder();
 
             sb.Append(Helpers.FormatedDate(log.Timestamp)).Append(separator);
             sb.Append(log.Level.ToString().ToUpper()).Append(separator);
-            sb.Append(log.Message).Append(separator);
+            sb.Append(log.Message);
             if (log.Exception != null)
             {
+                sb.Append(separator);
                 sb.Append("\n>>>TRACE>>>");
                 sb.Append(log.Exception.Message);
                 sb.Append(">>>");
-                sb.Append(log.Exception.StackTrace).Append(separator);
+                sb.Append(log.Exception.StackTrace);
             }
 
             return sb.ToString();

@@ -2,6 +2,6 @@
 {
     internal interface IStrategy
     {
-        void Save(Log log);
+        void Write(Log log);
     }
 }
