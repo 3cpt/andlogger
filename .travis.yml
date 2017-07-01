@@ -1,16 +1,21 @@
 language: csharp
 sudo: required
 dist: trusty
-dotnet: 1.0.1
-env: DOTNETCORE=1
 
-solution: Andlogger.sln
+mono: 3.8.0
+dotnet: 1.0.0
+
+branches:  
+  only:
+    - master
+
+# solution: Andlogger.sln
 
 script:
   # Build the source
   - cd src/Andlogger
   - dotnet restore
-  - dotnet build
+  - dotnet build -c Release
   
   # Back to main
   #- cd ../../
