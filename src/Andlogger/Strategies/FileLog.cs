@@ -10,6 +10,8 @@
         private Level level;
         private string fileName = "logger";
 
+        // todo : implement an interface like ILogSettings where we can define file name, formate (ex. [date]), path, etc
+        
         public FileLog(Level level, string path)
         {
             this.level = level;
@@ -20,17 +22,17 @@
 
         public void Write(Log log)
         {
-            if (log.Level <= this.level)
+            if (log.Level >= this.level)
             {
                 try
                 {
-                    this.CreateLogFile();
-
                     string message = this.Render(log);
 
                     using (StreamWriter streamWriter = File.AppendText(fullpath))
                     {
                         streamWriter.WriteLine(message);
+                        streamWriter.Flush();
+                        streamWriter.Dispose();
                     }
                 }
                 catch (Exception ex)
@@ -42,26 +44,10 @@
 
         private void CreateLogFile()
         {
-            FileInfo fileInfo = new FileInfo(fullpath);
-            if (fileInfo.Exists)
+            using (StreamWriter streamWriter = File.AppendText(this.fullpath))
             {
-                if (fileInfo.IsReadOnly)
-                {
-                    throw new FileLoadException("File is Read Only", fullpath);
-                }
-
-                if (fileInfo.Length > 2048)
-                {
-                    File.Move(fullpath, fullpath + Guid.NewGuid().ToString());
-                    File.Create(fullpath);
-                }
+                streamWriter.Dispose();
             }
-            else
-            {
-                var stream = File.Create(fullpath);
-                stream.Flush();
-            }
-            
         }
 
         private string Render(Log log)
@@ -76,7 +62,7 @@
             if (log.Exception != null)
             {
                 sb.Append(separator);
-                sb.Append("\n>>>TRACE>>>");
+                sb.Append(">>>TRACE>>>");
                 sb.Append(log.Exception.Message);
                 sb.Append(">>>");
                 sb.Append(log.Exception.StackTrace);
