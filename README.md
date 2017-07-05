@@ -22,8 +22,9 @@ Install-Package AndLogger
  this.log.Debug("debug message");
  this.log.Error("error message", new Exception("exception.Error"));
  
+  * With empty string the path that will be used is where the application is running
 ```
-* With empty string the path that will be used is where the application is running
+
 
 # Output Sample
 ```
