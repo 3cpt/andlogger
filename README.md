@@ -1,37 +1,37 @@
-# !!! Under Development !!! New fully working version coming soon
-... with documentation
-
 # AndLogger
-A simple log creator for C#
+A simple log library for C#.
 
 [![Build Status](https://travis-ci.org/iamhandre/andlogger.svg?branch=master)](https://travis-ci.org/iamhandre/Andlogger)
 
 # Under Development
 
-- .Net Core
 - Json File implementations
-- File opened tests
-- Permissions tests
-- More tests
+- Unit tests
 
 # How to use
 
-Just:
-- Install nuget: Install-Package AndLogger
-- Use: 
+- Install nuget: 
 ``` 
- Log.LogDebug(<method>, <message>);
- Log.LogInfo(<method>, <message>);
- Log.LogWarning(<message>);
- Log.LogError(<method>, <message>, <exception>); 
-```
-- A file .txt will be created inside the application folder that uses this library
+Install-Package AndLogger
+``` 
 
-# Example
+- Instantiate: 
+``` 
+ ILog log = new Logger(Level.Info, *string.Empty);
+
+ this.log.Debug("debug message");
+ this.log.Error("error message", new Exception("exception.Error"));
+ 
 ```
-[2016-06-20 09:10:24]|DEBUG|
-[2016-06-20 09:10:24]|INFO|info_message
-[2016-06-20 09:10:24]|WARNING|METHOD:Method2|warning_message
-[2016-06-20 09:10:24]|ERROR|METHOD:Method1|error_message|<stacktrace>
-[2016-06-20 09:10:24]|DEBUG|METHOD:method x|debug_message
+* With empty string the path that will be used is where the application is running
+
+# Output Sample
+```
+[2010-07-01 11:36:55.7776]|DEBUG|debug
+[2010-07-02 11:36:55.7906]|DEBUG|debug|>>>TRACE>>>exception.debug>>>
+[2010-07-03 11:36:55.7946]|INFO|info
+[2010-07-04 11:36:55.7986]|WARNING|Warning
+[2010-07-05 11:36:55.8036]|ERROR|Error
+[2010-07-06 11:36:55.8076]|ERROR|Error|>>>TRACE>>>exception.Error>>>
+[2010-07-07 11:36:55.8136]|DEBUG|debug
 ```
